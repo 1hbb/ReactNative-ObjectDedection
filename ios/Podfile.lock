@@ -248,6 +248,8 @@ PODS:
     - React
   - react-native-image-base64 (0.1.4):
     - React
+  - react-native-image-picker (3.1.2):
+    - React
   - React-RCTActionSheet (0.63.4):
     - React-Core/RCTActionSheetHeaders (= 0.63.4)
   - React-RCTAnimation (0.63.4):
@@ -354,6 +356,7 @@ DEPENDENCIES:
   - react-native-camera (from `../node_modules/react-native-camera`)
   - "react-native-cameraroll (from `../node_modules/@react-native-community/cameraroll`)"
   - react-native-image-base64 (from `../node_modules/react-native-image-base64`)
+  - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -419,6 +422,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/cameraroll"
   react-native-image-base64:
     :path: "../node_modules/react-native-image-base64"
+  react-native-image-picker:
+    :path: "../node_modules/react-native-image-picker"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -471,9 +476,10 @@ SPEC CHECKSUMS:
   React-jsi: a0418934cf48f25b485631deb27c64dc40fb4c31
   React-jsiexecutor: 93bd528844ad21dc07aab1c67cb10abae6df6949
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
-  react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
-  react-native-cameraroll: 60ba0068826eab1c8d43146191bafd4363ea58a7
-  react-native-image-base64: 2ff9ac788639c87a91361ab6652cc95e871b1e54
+  react-native-camera: 5c1fbfecf63b802b8ca4a71c60d30a71550fb348
+  react-native-cameraroll: 9d2b7c1707204d2040d2812f960c6cebdbd9f670
+  react-native-image-base64: acfe962aa79535d826a2668e66474e85a9ee468d
+  react-native-image-picker: 8b4ccafb47395aabe98d3af89f089e020cacd6d1
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0

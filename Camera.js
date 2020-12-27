@@ -3,14 +3,61 @@ import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import RNFS from 'react-native-fs';
 import apiRequest from './apiRequest';
+import CameraRoll from '@react-native-community/cameraroll';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 export default function StoryCamera() {
-  //StatusBar.setHidden(false);
+  const selectProfilePic = () => {
+    var options = {
+      title: 'Select Image',
+      takePhotoButtonTitle: 'Take Photo',
+      chooseFromLibraryButtonTitle: 'Choose Image',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+
+    launchImageLibrary(options, async (res) => {
+      //console.log('Response = ', res);
+
+      if (res.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (res.error) {
+        console.log('ImagePicker Error: ', res.error);
+      } else if (res.customButton) {
+        console.log('User tapped custom button: ', res.customButton);
+      } else {
+        let source = res;
+        var image = await RNFS.readFile(source.uri, 'base64').then((res) => {
+          return res;
+        });
+
+        var response = await apiRequest(image);
+        //console.log(response);
+        var objects = 'Objects in this image: ';
+        var x = response.responses[0].labelAnnotations[0].description;
+        for (
+          let index = 0;
+          index < response.responses[0].labelAnnotations.length;
+          index++
+        ) {
+          const object =
+            response.responses[0].labelAnnotations[index].description;
+          objects += object + ' ,';
+        }
+
+        createTwoButtonAlert(objects);
+      }
+    });
+  };
 
   const takePicture = async function (camera) {
     const options = {quality: 0.5, base64: true};
     const data = await camera.takePictureAsync(options);
     //  eslint-disable-next-line
+
+    CameraRoll.save(data.uri, {type: 'photo'});
 
     var string64 = await RNFS.readFile(data.uri, 'base64').then((res) => {
       return res;
@@ -42,9 +89,19 @@ export default function StoryCamera() {
       {({camera}) => {
         return (
           <>
-            <View>
-              <Text style={{color: 'white'}}>test</Text>
-            </View>
+            <TouchableOpacity
+              style={{
+                marginBottom: 20,
+                backgroundColor: 'white',
+                borderRadius: 30,
+                height: 30,
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: 100,
+              }}
+              onPress={() => selectProfilePic()}>
+              <Text style={{color: 'black'}}>Camera Roll</Text>
+            </TouchableOpacity>
             <View style={Styles.captureCircle}>
               <TouchableOpacity onPress={() => takePicture(camera)}>
                 <View style={Styles.captureButton}></View>
