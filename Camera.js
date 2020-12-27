@@ -31,7 +31,7 @@ export default function StoryCamera() {
       objects += object + ' ,';
     }
 
-    createTwoButtonAlert(objects)
+    createTwoButtonAlert(objects);
   };
 
   return (
@@ -42,6 +42,9 @@ export default function StoryCamera() {
       {({camera}) => {
         return (
           <>
+            <View>
+              <Text style={{color: 'white'}}>test</Text>
+            </View>
             <View style={Styles.captureCircle}>
               <TouchableOpacity onPress={() => takePicture(camera)}>
                 <View style={Styles.captureButton}></View>
