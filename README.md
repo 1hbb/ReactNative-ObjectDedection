@@ -9,3 +9,14 @@
 - `npm install`
 - For ios only `cd ios && pod install && cd .. && react-native run-ios`
 - For android onyl `react-native run-android`
+
+
+# Screenshots
+<table>
+  <tr>
+    <td><img src="./screenShots/IMG_1263.PNG" width="300"></td>
+    <td><img src="./screenShots/IMG_1265.PNG" width="300"></td>
+    <td><img src="./screenShots/IMG_1266.PNG" width="300"></td>
+    <td><img src="./screenShots/IMG_1267.PNG" width="300"></td>
+  <tr>
+</table>
