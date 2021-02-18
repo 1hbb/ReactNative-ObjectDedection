@@ -1,6 +1,6 @@
 # ReactNative-ObjectDedection
 
-## Object Dedection Application written in RN.
+## Object Dedection Application written in React Native and Redux.
 
 ### How To Use
 - Add your Google Vision API key in `apiRequest.js` like this ` const uri ='https://vision.googleapis.com/v1/images:annotate?key=[YOUR-GOOGLE-VISION-API-KEY]';`
